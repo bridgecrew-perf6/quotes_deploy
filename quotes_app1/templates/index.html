@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Quotable Quotes | Login/Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="body-style">
+    <div id="container">
+        <div id="header">
+            <h1 class="title-main">Quotable Quotes</h1>
+        </div>
+        <div id="content">
+            <div id="login-box">
+                <h1>Log In or Register</h1>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <form action="login" method="POST" class="login-form">
+                    <h2>Log In</h2>
+                    {% csrf_token %}
+                    <label for="email">Email:</label><br>
+                    <input type="text" name="email" id="email"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" name="password" id="password"><br>
+                    <button type="submit" class="link-large">Log In</button>
+                </form>
+                <form action="register" method="POST" class="login-form">
+                    <h2>Register</h2>
+                    {% csrf_token %}
+                    <label for="first_name">First Name:</label><br>
+                    <input type="text" name="first_name" id="first_name"><br>
+                    <label for="last_name">Last Name:</label><br>
+                    <input type="text" name="last_name" id="last_name"><br>
+                    <label for="birthday">Birthday (optional):</label><br>
+                    <input type="date" name="birthday" id="birthday"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" name="email" id="email"><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" name="password" id="password"><br>
+                    <label for="password_confirm">Confirm Password:</label><br>
+                    <input type="password" name="password_confirm" id="password_confirm"><br>
+                    <button type="submit" class="link-large">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

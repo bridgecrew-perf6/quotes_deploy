@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotable Quotes | Edit Quote {{quote_to_edit.id}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <body class="body-style">
+        <div id="container">
+            <div id="header">
+                <div class="header-left">
+                    <h1 class="title-sub center">Quotable Quotes</h1>
+                </div>
+                <div class="header-right">
+                    <a href="/logout" class="top-button">Log Out</a>
+                </div>
+            </div>
+            <div id="content">
+                <div class="content-box">
+                    <form action="update_quote" method="POST" class="box">
+                        <div class="exit">
+                            <a href="/quotes" class="link-small-red">Cancel</a>
+                        </div>
+                        {% if messages %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        {% csrf_token %}
+                        <h2 class="header2">Update Quote</h2>
+                        <input type="hidden" name="uploaded_by" id="uploaded_by" value="{{user.id}}">
+                        <label class="label" for="quoted_by">Quote Author:</label>
+                        <input class="form-element" type="text" name="quoted_by" id="quoted_by" value="{{quote_to_edit.quoted_by}}">
+                        <label class="label" for="message">Quote:</label>
+                        <textarea class="form-element" name="message" id="message" rows="4">{{quote_to_edit.message}}</textarea>
+                        <button type="submit" class="link-large">Update Quote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

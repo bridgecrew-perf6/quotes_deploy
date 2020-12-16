@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotable Quotes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="body-style">
+    <div id="container">
+        <div id="header">
+            <div class="header-left">
+                <h1 class="title-sub center">Quotable Quotes</h1>
+            </div>
+            <div class="header-right">
+                <p class="welcome center">Welcome {{user.first_name}}</p>
+                <a href="/logout" class="top-button">Log Out</a>
+            </div>
+        </div>
+        <div id="content">
+            <div class="content-box">
+                <form action="add_quote" method="POST" class="box">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% csrf_token %}
+                    <h2 class="header2">Contribute a Quote</h2>
+                    <input type="hidden" name="uploaded_by" id="uploaded_by" value="{{user.id}}">
+                    <label class="label" for="quoted_by">Quote Author:</label>
+                    <input class="form-element" type="text" name="quoted_by" id="quoted_by">
+                    <label class="label" for="message">Quote:</label>
+                    <textarea class="form-element" name="message" id="message" rows="4"></textarea>
+                    <button type="submit" class="link-large">Add Quote</button>
+                </form>
+                <h1 class="header-white">Favorite Quotes</h1>
+                {% for fave in fave_quotes %}
+                    <div class="box">
+                        {% if user.id == fave.uploaded_by.id %}
+                            <a href="/quotes/{{fave.id}}/edit_quote" class="link-small-blue">Edit Quote</a> | <a href="/quotes/{{fave.id}}/delete_quote" class="link-small-red">Delete Quote</a>
+                        {% endif %}
+                        <p class="text"><span class="bold">{{fave.quoted_by}}:</span> {{fave.message}}</p>
+                        <p class="text"><span class="bold">Posted by:</span> <a href="/{{fave.uploaded_by.id}}/user_profile" class="text-link">{{fave.uploaded_by.first_name}} {{fave.uploaded_by.last_name}}</a></p>
+                        <a href="/quotes/{{fave.id}}/remove_favorite" class="link-small-red">Remove from Favorites</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="content-box">
+                <h1 class="header-white">Quotable Quotes</h1>
+                {% for quote in all_quotes %}
+                    <div class="box">
+                        {% if user.id == quote.uploaded_by.id %}
+                            <a href="/quotes/{{quote.id}}/edit_quote" class="link-small-blue">Edit Quote</a> | <a href="/quotes/{{quote.id}}/delete_quote" class="link-small-red">Delete Quote</a>
+                        {% endif %}
+                        <p class="text"><span class="bold">{{quote.quoted_by}}:</span> {{quote.message}}</p>
+                        <p class="text"><span class="bold">Posted by:</span> <a href="/{{quote.uploaded_by.id}}/user_profile" class="text-link">{{quote.uploaded_by.first_name}} {{quote.uploaded_by.last_name}}</a></p>
+                        <a href="/quotes/{{quote.id}}/add_favorite" class="link-small-blue">Add to Favorites</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

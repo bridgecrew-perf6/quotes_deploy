@@ -1,0 +1,319 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*Site Styles */
+
+.body-style{
+    background-color:indigo;
+}
+
+#container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+#header{
+    width: 100%;
+    background-color: black;
+    padding: 10px 0px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.header-left{
+    display: inline-block;
+    width: 45%;
+    text-align: left;
+}
+
+.title-sub{
+    font-size: 1.5em;
+    line-height: 120%;
+    text-align: left;
+    color: white;
+    margin:0px 30px;
+}
+
+.header-right{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+
+.welcome{
+    color: white;
+    font-size: 1em;
+    line-height: 120%;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+.top-button{
+    display: inline-block;
+    font-size: 0.9em;
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    border: 1px outset lightgray;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title-main{
+    font-size: 1.5em;
+    line-height: 120%;
+    text-align: center;
+    color: white;
+}
+
+#content{
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 30px 0px
+}
+
+.content-box{
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    margin:0px 0px 10px 20px;
+}
+
+#login-box{
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    background-color: ghostwhite;
+    border: 1px solid midnightblue;
+}
+
+#login-box h1{
+    font-size: 1.3em;
+    line-height: 120%;
+    text-align: center;
+    color: midnightblue;
+}
+
+#login-box h2{
+    font-size: 1.1em;
+    line-height: 120%;
+    text-align: center;
+    color: midnightblue;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.login-form {
+    display: block;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.login-form label{
+    display: inline-block;
+    margin: 10px 0px 5px 0px;
+    font-size: 1em;
+}
+
+.login-form input{
+    display: inline-block;
+    max-width: 20em;
+    width: 80%;
+    margin:0px 0px 10px 0px;
+    border: 1px inset midnightblue;
+    padding:5px;
+}
+
+.link-large{
+    display: inline-block;
+    font-size: 0.9em;
+    color: white;
+    text-decoration: none;
+    background-color: mediumblue;
+    border: 1px outset dodgerblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.link-small-blue{
+    display: inline-block;
+    font-size: 0.75em;
+    color: white;
+    text-decoration: none;
+    background-color: mediumblue;
+    border: 1px outset dodgerblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.link-small-red{
+    display: inline-block;
+    font-size: 0.75em;
+    color: white;
+    text-decoration: none;
+    background-color: crimson;
+    border: 1px outset mediumvioletred;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.messages{
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    color:darkred;
+}
+
+.box{
+    display: block;
+    margin: 10px 0px;
+    padding: 10px 15px;
+    background-color: ghostwhite;
+    border: 1px solid midnightblue;
+}
+
+.header1{
+    font-size: 1.75em;
+    font-weight: bold;
+    line-height: 110%;
+    margin: 10px 0px 5px 0px;
+    color: midnightblue;
+}
+
+.header-white{
+    font-size: 1.9em;
+    font-weight: bold;
+    line-height: 110%;
+    margin: 15px 0px 10px 0px;
+    color: ghostwhite;
+}
+
+.header2{
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 110%;
+    margin: 10px 0px 5px 0px;
+    color: midnightblue;
+}
+
+.text{
+    font-size: 1em;
+    line-height: 120%;
+    margin: 10px 0px 0px 0px;
+    color: black;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.text-link{
+    color: black;
+    text-decoration: underline;
+}
+
+.label{
+    display: block;
+    font-size: 1em;
+    line-height: 120%;
+    margin: 10px 0px 3px 0px;
+    color: midnightblue;
+}
+
+.form-element{
+    display: block;
+    width: 90%;
+    border: 1px solid midnightblue;
+    font-size: 1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.exit{
+    display: block;
+    text-align: right;
+}
+
+@media only screen and (max-width: 500px){
+    .w100{
+        width: 100%;
+    }
+
+    .center{
+        text-align: center !important;
+    }
+
+    .header-left{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .header-right{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .content-box{
+        display: block;
+        width: 100%;
+        margin:10px 0px;
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotable Quotes | {{profile.first_name}}'s Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="body-style">
+    <div id="container">
+        <div id="header">
+            <div class="header-left">
+                <h1 class="title-sub center">Quotable Quotes</h1>
+            </div>
+            <div class="header-right">
+                <a href="/logout" class="top-button">Log Out</a>
+            </div>
+        </div>
+        <div id="content">
+            <div class="box">
+                <div class="exit">
+                    <a href="/quotes" class="link-large">Back to Quotes</a>
+                </div>
+                <h1 class="header1">Quotes added by {{profile.first_name}} {{profile.last_name}}</h1>
+                <p class="text"><span class="bold">Total quotes uploaded:</span> {{quantity}}</p>
+                {% for user_quote in profile.quotes_uploaded.all %}
+                    <p class="text"><span class="bold">{{user_quote.quoted_by}}:</span> {{user_quote.message}}</p>
+                {% endfor %}
+                <p class="text">&nbsp;</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
